@@ -3,12 +3,13 @@ go:
   - 1.5
   - 1.6
 
+env:
+  - GO15VENDOREXPERIMENT=1
+
 services:
   - cassandra
 
 before_script:
-  # peg
-  - go get -u github.com/pointlander/peg
   - go get -u golang.org/x/tools/cmd/goimports
   - cqlsh -f metric_metadata/cassandra/schema/schema_test.cql
 
